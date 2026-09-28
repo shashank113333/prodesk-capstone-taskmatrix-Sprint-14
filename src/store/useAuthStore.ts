@@ -22,7 +22,6 @@ export const useAuthStore = create<AuthState>((set) => ({
   token: null,
   isAuthenticated: false,
 
-  // Login Handler
   login: (email: string, name = "Shashank", role = "Developer") => {
     const mockUser: UserPayload = {
       uid: `usr_${Date.now()}`,
@@ -32,7 +31,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     };
     const mockToken = `jwt_mock_token_${Date.now()}`;
 
-    // Save to localStorage for browser persistence
     if (typeof window !== 'undefined') {
       localStorage.setItem('taskmatrix_user', JSON.stringify(mockUser));
       localStorage.setItem('taskmatrix_token', mockToken);
@@ -45,7 +43,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 
-  // Register Handler
   register: (name: string, email: string, role: 'Developer' | 'Project Lead' | 'Admin') => {
     const newUser: UserPayload = {
       uid: `usr_${Date.now()}`,
@@ -67,7 +64,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 
-  // Logout Handler
   logout: () => {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('taskmatrix_user');
@@ -81,7 +77,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 
-  // Hydrate Auth from localStorage on page refresh
   hydrateAuth: () => {
     if (typeof window !== 'undefined') {
       const savedUser = localStorage.getItem('taskmatrix_user');

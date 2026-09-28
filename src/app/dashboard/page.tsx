@@ -22,13 +22,11 @@ export default function DashboardPage() {
   const { user, isAuthenticated, logout, hydrateAuth } = useAuthStore();
   const [loading, setLoading] = useState(true);
 
-  // 1. Hydrate authentication state on mount
   useEffect(() => {
     hydrateAuth();
     setLoading(false);
   }, [hydrateAuth]);
 
-  // 2. ROUTE GUARD: Intercept unauthenticated access to /dashboard
   useEffect(() => {
     if (!loading && !isAuthenticated) {
       router.push("/login");
@@ -53,12 +51,8 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-      
-      {/* Navigation Header */}
       <header className="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          
-          {/* Logo & Title */}
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-600/30">
               <Kanban className="w-5 h-5" />
@@ -73,10 +67,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* User Profile Badge & Logout */}
           <div className="flex items-center gap-4">
-            
-            {/* Authenticated User Hydration Payload */}
             <div className="flex items-center gap-3 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700">
               <div className="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-400 flex items-center justify-center font-bold text-xs">
                 {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
@@ -94,7 +85,6 @@ export default function DashboardPage() {
               </span>
             </div>
 
-            {/* Logout Action Button */}
             <button
               onClick={() => {
                 logout();
@@ -106,15 +96,11 @@ export default function DashboardPage() {
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Logout</span>
             </button>
-
           </div>
         </div>
       </header>
 
-      {/* Main Board Viewport */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
-        
-        {/* Verification Banner */}
         <div className="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-emerald-500/20 text-emerald-400 rounded-xl">
@@ -134,7 +120,6 @@ export default function DashboardPage() {
           </span>
         </div>
 
-        {/* Toolbar & Filter Options */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/40 p-4 rounded-2xl border border-slate-800">
           <div className="relative w-full sm:w-80">
             <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
@@ -157,14 +142,12 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* 4-Column Agile Kanban Skeleton Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {columns.map((col) => (
             <div
               key={col.id}
               className={`rounded-2xl border p-4 flex flex-col gap-4 ${col.color}`}
             >
-              {/* Column Header */}
               <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
                 <span className="font-semibold text-xs text-slate-200 tracking-wide uppercase">
                   {col.title}
@@ -174,7 +157,6 @@ export default function DashboardPage() {
                 </span>
               </div>
 
-              {/* Sample Task Card Placeholders */}
               <div className="space-y-3">
                 <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition cursor-pointer">
                   <div className="flex items-center justify-between">
@@ -198,7 +180,6 @@ export default function DashboardPage() {
             </div>
           ))}
         </div>
-
       </main>
     </div>
   );

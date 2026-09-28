@@ -40,7 +40,6 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-12">
       <div className="max-w-md w-full space-y-8 bg-slate-900/80 p-8 rounded-2xl border border-slate-800 shadow-2xl backdrop-blur-sm">
-        {/* Header */}
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center p-3 bg-blue-600/10 text-blue-500 rounded-xl mb-2 border border-blue-500/20">
             <LogIn className="w-8 h-8" />
@@ -53,11 +52,8 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Login Form */}
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
-            
-            {/* Email Field */}
             <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                 Work Email Address
@@ -77,7 +73,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Password Field */}
             <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                 Password
@@ -97,7 +92,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Role Switcher */}
             <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                 Select Agile Role
@@ -119,7 +113,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -130,7 +123,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Footer Navigation */}
         <div className="text-center pt-2 border-t border-slate-800/80">
           <p className="text-sm text-slate-400">
             Don't have an account?{" "}
