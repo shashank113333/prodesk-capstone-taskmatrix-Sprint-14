@@ -35,10 +35,10 @@ export default function DashboardPage() {
 
   if (loading || !isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-3 text-slate-400">
-        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      <main className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-3 text-slate-400">
+        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" role="status" aria-label="Loading authentication status"></div>
         <p className="text-sm font-medium">Verifying Auth State & Route Protection...</p>
-      </div>
+      </main>
     );
   }
 
@@ -55,7 +55,7 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-600/30">
-              <Kanban className="w-5 h-5" />
+              <Kanban className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <h1 className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
@@ -69,7 +69,7 @@ export default function DashboardPage() {
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700">
-              <div className="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-400 flex items-center justify-center font-bold text-xs">
+              <div className="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-400 flex items-center justify-center font-bold text-xs" aria-hidden="true">
                 {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
               </div>
               <div className="text-left hidden sm:block">
@@ -90,10 +90,11 @@ export default function DashboardPage() {
                 logout();
                 router.push("/login");
               }}
+              aria-label="Logout of current session"
               className="flex items-center gap-2 px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 rounded-xl text-xs font-semibold transition"
               title="Sign Out of Session"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-4 h-4" aria-hidden="true" />
               <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
@@ -101,10 +102,10 @@ export default function DashboardPage() {
       </header>
 
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
-        <div className="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <section aria-label="Route Protection Status" className="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-emerald-500/20 text-emerald-400 rounded-xl">
-              <ShieldCheck className="w-6 h-6" />
+              <ShieldCheck className="w-6 h-6" aria-hidden="true" />
             </div>
             <div>
               <h2 className="text-sm font-semibold text-emerald-300">
@@ -118,31 +119,34 @@ export default function DashboardPage() {
           <span className="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-3 py-1 rounded-lg border border-emerald-500/20">
             UID: {user?.uid || "usr_session_active"}
           </span>
-        </div>
+        </section>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/40 p-4 rounded-2xl border border-slate-800">
+        <section aria-label="Task Management Toolbar" className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/40 p-4 rounded-2xl border border-slate-800">
           <div className="relative w-full sm:w-80">
-            <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+            <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" aria-hidden="true" />
             <input
+              id="search-tasks"
+              name="search"
               type="text"
+              aria-label="Search sprint backlog tasks"
               placeholder="Search sprint backlog tasks..."
               className="w-full bg-slate-950 border border-slate-800 pl-9 pr-4 py-2 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
-            <button className="flex items-center gap-2 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-medium border border-slate-700 transition">
-              <Filter className="w-3.5 h-3.5" />
+            <button aria-label="Filter Tasks" className="flex items-center gap-2 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-medium border border-slate-700 transition">
+              <Filter className="w-3.5 h-3.5" aria-hidden="true" />
               Filter Tasks
             </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-blue-600/20 transition">
-              <Plus className="w-4 h-4" />
+            <button aria-label="Create New Task" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-blue-600/20 transition">
+              <Plus className="w-4 h-4" aria-hidden="true" />
               New Task
             </button>
           </div>
-        </div>
+        </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <section aria-label="Agile Kanban Board Columns" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {columns.map((col) => (
             <div
               key={col.id}
@@ -179,7 +183,7 @@ export default function DashboardPage() {
 
             </div>
           ))}
-        </div>
+        </section>
       </main>
     </div>
   );
