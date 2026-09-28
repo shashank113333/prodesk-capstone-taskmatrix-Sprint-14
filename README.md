@@ -10,6 +10,14 @@ Sprint 14 delivers the core **"Walking Skeleton"** architecture for TaskMatrix �
 
 ---
 
+## 🌐 Live Application & Links
+
+- 🚀 **Live Website (Vercel)**: [https://prodesk-taskmatrix-sprint-14.vercel.app](https://prodesk-taskmatrix-sprint-14.vercel.app)
+- 📦 **GitHub Repository**: [https://github.com/shashank113333/prodesk-capstone-taskmatrix-Sprint-14](https://github.com/shashank113333/prodesk-capstone-taskmatrix-Sprint-14)
+- 📝 **AI Compliance Log**: Refer to `Prompts.md` for architectural decision logs.
+
+---
+
 ## 🏗️ Technical Architecture & Tech Stack
 
 | Layer | Technology / Tool | Operational Rationale |
