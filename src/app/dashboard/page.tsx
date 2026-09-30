@@ -61,8 +61,8 @@ export default function DashboardPage() {
               <h1 className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                 TaskMatrix
               </h1>
-              <span className="text-[10px] uppercase tracking-widest text-blue-400 font-semibold block">
-                Sprint 14 Walking Skeleton
+              <span className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold block">
+                Agile Project Management
               </span>
             </div>
           </div>
@@ -102,25 +102,6 @@ export default function DashboardPage() {
       </header>
 
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
-        <section aria-label="Route Protection Status" className="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-emerald-500/20 text-emerald-400 rounded-xl">
-              <ShieldCheck className="w-6 h-6" aria-hidden="true" />
-            </div>
-            <div>
-              <h2 className="text-sm font-semibold text-emerald-300">
-                Route Guard Verification Status: 200 OK (Authenticated)
-              </h2>
-              <p className="text-xs text-emerald-400/80">
-                User payload successfully hydrated into Zustand Store. Token persistent in localStorage.
-              </p>
-            </div>
-          </div>
-          <span className="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-3 py-1 rounded-lg border border-emerald-500/20">
-            UID: {user?.uid || "usr_session_active"}
-          </span>
-        </section>
-
         <section aria-label="Task Management Toolbar" className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/40 p-4 rounded-2xl border border-slate-800">
           <div className="relative w-full sm:w-80">
             <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" aria-hidden="true" />
