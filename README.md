@@ -50,14 +50,11 @@ Sprint 14 delivers the core **"Walking Skeleton"** architecture for TaskMatrix �
 ## 🛠️ Local Development Setup
 
 ```bash
-# 1. Clone the repository
+
 git clone https://github.com/shashank113333/prodesk-capstone-taskmatrix-Sprint-14.git
 
-# 2. Navigate to project directory
 cd prodesk-capstone-taskmatrix-Sprint-14
 
-# 3. Install dependencies
 npm install
 
-# 4. Launch development server
 npm run dev
